@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="9fa61342-4ac6-4561-98eb-5a6f3e20662d" name="Changes" comment="saving files for git">
+      <change afterPath="$PROJECT_DIR$/apps/web/.env.example" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/apps/web/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/apps/web/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/apps/web/eslint.config.mjs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/apps/web/next-env.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/apps/web/next.config.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/apps/web/package.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/apps/web/postcss.config.mjs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/apps/web/public/file.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/apps/web/public/globe.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/apps/web/public/next.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/apps/web/public/vercel.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/apps/web/public/window.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/apps/web/src/app/auth/page.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/apps/web/src/app/favicon.ico" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/apps/web/src/app/globals.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/apps/web/src/app/layout.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/apps/web/src/app/page.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/apps/web/src/app/providers.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/apps/web/src/components/auth/LoginForm.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/apps/web/src/components/auth/RegisterForm.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/apps/web/src/components/map/FilterPanel.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/apps/web/src/components/map/ForestMap.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/apps/web/src/graphql/auth.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/apps/web/src/graphql/geospatial.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/apps/web/src/lib/apollo-client.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/apps/web/src/lib/mock-data.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/apps/web/src/store/authStore.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/apps/web/src/store/mapStore.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/apps/web/tsconfig.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/bd-foret/raw/BDFORET_2-0__SHP_LAMB93_D040_2018-10-01/BDFORET_2-0__SHP_LAMB93_D040_2018-10-01/BDFORET.md5" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/bd-foret/raw/BDFORET_2-0__SHP_LAMB93_D040_2018-10-01/BDFORET_2-0__SHP_LAMB93_D040_2018-10-01/BDFORET/1_DONNEES_LIVRAISON.md5" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/bd-foret/raw/BDFORET_2-0__SHP_LAMB93_D040_2018-10-01/BDFORET_2-0__SHP_LAMB93_D040_2018-10-01/BDFORET/1_DONNEES_LIVRAISON/BDF_2-0_SHP_LAMB93_D040.md5" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/bd-foret/raw/BDFORET_2-0__SHP_LAMB93_D040_2018-10-01/BDFORET_2-0__SHP_LAMB93_D040_2018-10-01/BDFORET/1_DONNEES_LIVRAISON/BDF_2-0_SHP_LAMB93_D040/FORMATION_VEGETALE.cpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/bd-foret/raw/BDFORET_2-0__SHP_LAMB93_D040_2018-10-01/BDFORET_2-0__SHP_LAMB93_D040_2018-10-01/BDFORET/1_DONNEES_LIVRAISON/BDF_2-0_SHP_LAMB93_D040/FORMATION_VEGETALE.dbf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/bd-foret/raw/BDFORET_2-0__SHP_LAMB93_D040_2018-10-01/BDFORET_2-0__SHP_LAMB93_D040_2018-10-01/BDFORET/1_DONNEES_LIVRAISON/BDF_2-0_SHP_LAMB93_D040/FORMATION_VEGETALE.prj" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/bd-foret/raw/BDFORET_2-0__SHP_LAMB93_D040_2018-10-01/BDFORET_2-0__SHP_LAMB93_D040_2018-10-01/BDFORET/1_DONNEES_LIVRAISON/BDF_2-0_SHP_LAMB93_D040/FORMATION_VEGETALE.shp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/bd-foret/raw/BDFORET_2-0__SHP_LAMB93_D040_2018-10-01/BDFORET_2-0__SHP_LAMB93_D040_2018-10-01/BDFORET/1_DONNEES_LIVRAISON/BDF_2-0_SHP_LAMB93_D040/FORMATION_VEGETALE.shx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/bd-foret/raw/BDFORET_2-0__SHP_LAMB93_D040_2018-10-01/BDFORET_2-0__SHP_LAMB93_D040_2018-10-01/BDFORET/2_METADONNEES_LIVRAISON.md5" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/bd-foret/raw/BDFORET_2-0__SHP_LAMB93_D040_2018-10-01/BDFORET_2-0__SHP_LAMB93_D040_2018-10-01/BDFORET/2_METADONNEES_LIVRAISON/BDF_2-0_SHP_LAMB93_D040.md5" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/bd-foret/raw/BDFORET_2-0__SHP_LAMB93_D040_2018-10-01/BDFORET_2-0__SHP_LAMB93_D040_2018-10-01/BDFORET/2_METADONNEES_LIVRAISON/BDF_2-0_SHP_LAMB93_D040/IGNF_BDF_2-0_SHP_LAMB93_D040.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/bd-foret/raw/BDFORET_2-0__SHP_LAMB93_D040_2018-10-01/BDFORET_2-0__SHP_LAMB93_D040_2018-10-01/BDFORET/2_METADONNEES_LIVRAISON/BDF_2-0_SHP_LAMB93_D040/IGNF_BDF_2-0_SHP_LAMB93_D040.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/bd-foret/raw/BDFORET_2-0__SHP_LAMB93_D040_2018-10-01/BDFORET_2-0__SHP_LAMB93_D040_2018-10-01/BDFORET/3_SUPPLEMENTS_LIVRAISON.md5" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/bd-foret/raw/BDFORET_2-0__SHP_LAMB93_D040_2018-10-01/BDFORET_2-0__SHP_LAMB93_D040_2018-10-01/BDFORET/3_SUPPLEMENTS_LIVRAISON/BDF_2-0_SHP_LAMB93_D040.md5" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/bd-foret/raw/BDFORET_2-0__SHP_LAMB93_D040_2018-10-01/BDFORET_2-0__SHP_LAMB93_D040_2018-10-01/BDFORET/3_SUPPLEMENTS_LIVRAISON/BDF_2-0_SHP_LAMB93_D040/BDF_2_Synthese_40.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/bd-foret/raw/BDFORET_2-0__SHP_LAMB93_D040_2018-10-01/BDFORET_2-0__SHP_LAMB93_D040_2018-10-01/BDFORET/LISEZ-MOI.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/bd-foret/raw/BDFORET_2-0__SHP_LAMB93_D088_2015-04-01/BDFORET_2-0__SHP_LAMB93_D088_2015-04-01/BDFORET.md5" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/bd-foret/raw/BDFORET_2-0__SHP_LAMB93_D088_2015-04-01/BDFORET_2-0__SHP_LAMB93_D088_2015-04-01/BDFORET/1_DONNEES_LIVRAISON.md5" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/bd-foret/raw/BDFORET_2-0__SHP_LAMB93_D088_2015-04-01/BDFORET_2-0__SHP_LAMB93_D088_2015-04-01/BDFORET/1_DONNEES_LIVRAISON/BDF_2-0_SHP_LAMB93_D088.md5" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/bd-foret/raw/BDFORET_2-0__SHP_LAMB93_D088_2015-04-01/BDFORET_2-0__SHP_LAMB93_D088_2015-04-01/BDFORET/1_DONNEES_LIVRAISON/BDF_2-0_SHP_LAMB93_D088/FORMATION_VEGETALE.cpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/bd-foret/raw/BDFORET_2-0__SHP_LAMB93_D088_2015-04-01/BDFORET_2-0__SHP_LAMB93_D088_2015-04-01/BDFORET/1_DONNEES_LIVRAISON/BDF_2-0_SHP_LAMB93_D088/FORMATION_VEGETALE.dbf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/bd-foret/raw/BDFORET_2-0__SHP_LAMB93_D088_2015-04-01/BDFORET_2-0__SHP_LAMB93_D088_2015-04-01/BDFORET/1_DONNEES_LIVRAISON/BDF_2-0_SHP_LAMB93_D088/FORMATION_VEGETALE.prj" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/bd-foret/raw/BDFORET_2-0__SHP_LAMB93_D088_2015-04-01/BDFORET_2-0__SHP_LAMB93_D088_2015-04-01/BDFORET/1_DONNEES_LIVRAISON/BDF_2-0_SHP_LAMB93_D088/FORMATION_VEGETALE.shp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/bd-foret/raw/BDFORET_2-0__SHP_LAMB93_D088_2015-04-01/BDFORET_2-0__SHP_LAMB93_D088_2015-04-01/BDFORET/1_DONNEES_LIVRAISON/BDF_2-0_SHP_LAMB93_D088/FORMATION_VEGETALE.shx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/bd-foret/raw/BDFORET_2-0__SHP_LAMB93_D088_2015-04-01/BDFORET_2-0__SHP_LAMB93_D088_2015-04-01/BDFORET/2_METADONNEES_LIVRAISON.md5" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/bd-foret/raw/BDFORET_2-0__SHP_LAMB93_D088_2015-04-01/BDFORET_2-0__SHP_LAMB93_D088_2015-04-01/BDFORET/2_METADONNEES_LIVRAISON/BDF_2-0_SHP_LAMB93_D088.md5" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/bd-foret/raw/BDFORET_2-0__SHP_LAMB93_D088_2015-04-01/BDFORET_2-0__SHP_LAMB93_D088_2015-04-01/BDFORET/2_METADONNEES_LIVRAISON/BDF_2-0_SHP_LAMB93_D088/IGNF_BDF_2-0_SHP_LAMB93_D088.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/bd-foret/raw/BDFORET_2-0__SHP_LAMB93_D088_2015-04-01/BDFORET_2-0__SHP_LAMB93_D088_2015-04-01/BDFORET/2_METADONNEES_LIVRAISON/BDF_2-0_SHP_LAMB93_D088/IGNF_BDF_2-0_SHP_LAMB93_D088.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/bd-foret/raw/BDFORET_2-0__SHP_LAMB93_D088_2015-04-01/BDFORET_2-0__SHP_LAMB93_D088_2015-04-01/BDFORET/3_SUPPLEMENTS_LIVRAISON.md5" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/bd-foret/raw/BDFORET_2-0__SHP_LAMB93_D088_2015-04-01/BDFORET_2-0__SHP_LAMB93_D088_2015-04-01/BDFORET/3_SUPPLEMENTS_LIVRAISON/BDF_2-0_SHP_LAMB93_D088.md5" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/bd-foret/raw/BDFORET_2-0__SHP_LAMB93_D088_2015-04-01/BDFORET_2-0__SHP_LAMB93_D088_2015-04-01/BDFORET/3_SUPPLEMENTS_LIVRAISON/BDF_2-0_SHP_LAMB93_D088/BDF_2_Synthese_88.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/bd-foret/raw/BDFORET_2-0__SHP_LAMB93_D088_2015-04-01/BDFORET_2-0__SHP_LAMB93_D088_2015-04-01/BDFORET/LISEZ-MOI.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/bd-foret/raw/FORMATION_VEGETALE.cpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/bd-foret/raw/FORMATION_VEGETALE.dbf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/bd-foret/raw/FORMATION_VEGETALE.prj" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/bd-foret/raw/FORMATION_VEGETALE.shp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/bd-foret/raw/FORMATION_VEGETALE.shx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/bd-foret/raw/formation_vegetale.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/turbo.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ComposerSettings">
+    <execution />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;TALHA017&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "url": "https://github.com/TALHA017/forest-bd-viewer.git",
+    "accountId": "12409214-6aa2-4652-b2ef-2a2d3f616dfe"
+  }
+}]]></component>
+  <component name="PhpWorkspaceProjectConfiguration" interpreter_name="D:\laragon\bin\php\php-8.1.10-Win32-vs16-x64\php.exe" />
+  <component name="ProjectColorInfo">{
+  &quot;customColor&quot;: &quot;&quot;,
+  &quot;associatedIndex&quot;: 7
+}</component>
+  <component name="ProjectId" id="3A5KbxRcArLcmC5ocd6pSSrder9" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "master",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "prettier.import.notification.dismissed": "true",
+    "ts.external.directory.path": "C:\\Projects\\forest-bd-viewer\\node_modules\\typescript\\lib",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="ReactDesignerToolWindowState">
+    <option name="myId2Visible">
+      <map>
+        <entry key="com.intellij.reactbuddy.reactComponents" value="false" />
+        <entry key="com.intellij.reactbuddy.reactInspector" value="false" />
+        <entry key="com.intellij.reactbuddy.storybook" value="false" />
+      </map>
+    </option>
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Projects\forest-bd-viewer\apps\api\src\auth" />
+    </key>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-js-predefined-1d06a55b98c1-0b3e54e931b4-JavaScript-PS-241.18968.24" />
+        <option value="bundled-php-predefined-ba97393d7c68-48a1a656d44e-com.jetbrains.php.sharedIndexes-PS-241.18968.24" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="9fa61342-4ac6-4561-98eb-5a6f3e20662d" name="Changes" comment="" />
+      <created>1771877071530</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1771877071530</updated>
+      <workItem from="1771877080915" duration="27845000" />
+      <workItem from="1771940129422" duration="1249000" />
+    </task>
+    <task id="LOCAL-00001" summary="saving files for git">
+      <option name="closed" value="true" />
+      <created>1771938633364</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1771938633364</updated>
+    </task>
+    <task id="LOCAL-00002" summary="saving files for git">
+      <option name="closed" value="true" />
+      <created>1771940411688</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1771940411688</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="saving files for git" />
+    <option name="LAST_COMMIT_MESSAGE" value="saving files for git" />
+  </component>
+</project>
