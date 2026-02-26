@@ -1,5 +1,7 @@
-import { Entity, Column, PrimaryGeneratedColumn, CreateDateColumn, UpdateDateColumn } from 'typeorm';
 
+
+import { OneToMany, Entity, Column, PrimaryGeneratedColumn, CreateDateColumn, UpdateDateColumn } from 'typeorm';
+import { UserPolygon } from './user-polygon.entity';
 
 @Entity('users')
 
@@ -37,4 +39,7 @@ export class User {
 
     @UpdateDateColumn()
     updatedAt!: Date;
+
+    @OneToMany(() => UserPolygon, polygon => polygon.user)
+    polygons?: UserPolygon[];
 }
