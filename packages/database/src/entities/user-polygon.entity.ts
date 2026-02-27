@@ -1,6 +1,5 @@
 import { Entity, Column, PrimaryGeneratedColumn, CreateDateColumn, ManyToOne, JoinColumn } from 'typeorm';
 import { User } from './user.entity';
-
 export type AnalysisStatus = 'pending' | 'completed' | 'failed';
 
 @Entity('user_polygons')

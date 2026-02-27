@@ -40,6 +40,6 @@ export class User {
     @UpdateDateColumn()
     updatedAt!: Date;
 
-    @OneToMany(() => UserPolygon, polygon => polygon.user)
-    polygons?: UserPolygon[];
+  /*  @OneToMany(() => UserPolygon, polygon => polygon.user)
+    polygons?: UserPolygon[];*/
 }
