@@ -11,7 +11,36 @@ import {
 } from '@/graphql/geospatial';
 import { MapPin, TreePine, ChevronRight, RotateCcw } from 'lucide-react';
 
-export function FilterPanel() {
+// Hardcoded regions with center coordinates and zoom levels
+const REGIONS = [
+    {
+        code: 'NORMANDIE',
+        name: 'Normandie',
+        lat: 49.1829,
+        lng: 0.3700,
+        zoom: 7
+    },
+    {
+        code: 'PAYS_DE_LA_LOIRE',
+        name: 'Pays de la Loire',
+        lat: 47.7633,
+        lng: -0.3297,
+        zoom: 7
+    },
+    {
+        code: 'CENTRE_VAL_DE_LOIRE',
+        name: 'Centre-Val de Loire',
+        lat: 47.7516,
+        lng: 1.6751,
+        zoom: 7
+    }
+];
+
+interface FilterPanelProps {
+    onRegionSelect?: (lat: number, lng: number, zoom: number) => void;
+}
+
+export function FilterPanel({ onRegionSelect }: FilterPanelProps) {
     const { filters, setFilters, resetFilters } = useMapStore();
 
     const { data: regionsData, loading: loadingRegions } = useQuery(GET_REGIONS);
@@ -39,6 +68,12 @@ export function FilterPanel() {
 
     const handleRegionChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
         const value = e.target.value;
+
+        const selectedRegion = REGIONS.find(r => r.code === value);
+        if (selectedRegion && onRegionSelect) {
+            onRegionSelect(selectedRegion.lat, selectedRegion.lng, selectedRegion.zoom);
+        }
+
         setFilters({
             regionCode: value || undefined,
             departementCode: undefined,
@@ -73,16 +108,14 @@ export function FilterPanel() {
 
     const hasFilters = filters.regionCode || filters.departementCode || filters.communeCode;
 
-    // @ts-ignore
-    // @ts-ignore
     return (
         <div className="absolute top-4 left-4 z-10 w-80 bg-white rounded-xl shadow-lg border border-gray-200 overflow-hidden">
-            <div className="p-4 bg-gradient-to-r from-green-600 to-green-700 text-white">
+            <div className="p-4" style={{ background: 'linear-gradient(to right, #0b4a59, #0d5a6b)' }}>
                 <div className="flex items-center gap-2">
-                    <TreePine size={20} />
-                    <h3 className="font-semibold text-lg">Forest Explorer</h3>
+                    <TreePine size={20} className="text-white" />
+                    <h3 className="font-semibold text-lg text-white">Forest Explorer</h3>
                 </div>
-                <p className="text-green-100 text-sm mt-1">Filter by administrative area</p>
+                <p className="text-gray-200 text-sm mt-1">Filter by administrative area</p>
             </div>
 
             <div className="p-4 space-y-4">
@@ -97,20 +130,32 @@ export function FilterPanel() {
                             value={filters.regionCode || ''}
                             onChange={handleRegionChange}
                             disabled={loadingRegions}
-                            className="w-full px-3 py-2 bg-gray-50 border border-gray-200 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent outline-none appearance-none cursor-pointer disabled:opacity-50"
+                            className="w-full px-3 py-2 bg-gray-50 border border-gray-200 rounded-lg focus:ring-2 focus:ring-[#0b4a59] focus:border-transparent outline-none appearance-none cursor-pointer disabled:opacity-50"
                         >
                             <option value="">Select a region...</option>
 
-                            {regionsData?.regions.map((code: string) => (
-                                <option key={code} value={code}>Region {code}</option>
-                            ))}
+                            <optgroup label="Regions">
+                                {REGIONS.map((region) => (
+                                    <option key={region.code} value={region.code}>
+                                        {region.name}
+                                    </option>
+                                ))}
+                            </optgroup>
+
+                            {regionsData?.regions?.length > 0 && (
+                                <optgroup label="Other Regions">
+                                    {regionsData.regions.map((code: string) => (
+                                        <option key={code} value={code}>Region {code}</option>
+                                    ))}
+                                </optgroup>
+                            )}
                         </select>
                         <ChevronRight className="absolute right-3 top-1/2 -translate-y-1/2 rotate-90 text-gray-400 pointer-events-none" size={16} />
                     </div>
                 </div>
 
                 {/* Department Select */}
-                {filters.regionCode && (
+                {filters.regionCode && !REGIONS.find(r => r.code === filters.regionCode) && (
                     <div className="animate-in slide-in-from-top-2">
                         <label className="flex items-center gap-2 text-sm font-medium text-gray-700 mb-1.5">
                             <MapPin size={14} />
@@ -121,7 +166,7 @@ export function FilterPanel() {
                                 value={filters.departementCode || ''}
                                 onChange={handleDeptChange}
                                 disabled={loadingDepts}
-                                className="w-full px-3 py-2 bg-gray-50 border border-gray-200 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent outline-none appearance-none cursor-pointer disabled:opacity-50"
+                                className="w-full px-3 py-2 bg-gray-50 border border-gray-200 rounded-lg focus:ring-2 focus:ring-[#0b4a59] focus:border-transparent outline-none appearance-none cursor-pointer disabled:opacity-50"
                             >
                                 <option value="">Select a department...</option>
                                 {deptData?.departements.map((code: string) => (
@@ -145,7 +190,7 @@ export function FilterPanel() {
                                 value={filters.communeCode || ''}
                                 onChange={handleCommuneChange}
                                 disabled={loadingCommunes}
-                                className="w-full px-3 py-2 bg-gray-50 border border-gray-200 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent outline-none appearance-none cursor-pointer disabled:opacity-50"
+                                className="w-full px-3 py-2 bg-gray-50 border border-gray-200 rounded-lg focus:ring-2 focus:ring-[#0b4a59] focus:border-transparent outline-none appearance-none cursor-pointer disabled:opacity-50"
                             >
                                 <option value="">Select a commune...</option>
                                 {communeData?.communes.map((code: string) => (
@@ -169,7 +214,7 @@ export function FilterPanel() {
                                 value={filters.lieuDit || ''}
                                 onChange={handleLieuDitChange}
                                 disabled={loadingLieuxDits}
-                                className="w-full px-3 py-2 bg-gray-50 border border-gray-200 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent outline-none appearance-none cursor-pointer disabled:opacity-50"
+                                className="w-full px-3 py-2 bg-gray-50 border border-gray-200 rounded-lg focus:ring-2 focus:ring-[#0b4a59] focus:border-transparent outline-none appearance-none cursor-pointer disabled:opacity-50"
                             >
                                 <option value="">Select a lieu dit...</option>
                                 {lieuxDitsData?.lieuxDits.map((name: string) => (

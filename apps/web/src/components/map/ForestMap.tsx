@@ -20,7 +20,12 @@ import { WMS_LAYERS, getWMSTileUrl, WMSLayerConfig } from '@/services/wmsLayers'
 
 import { Layers, LogOut, Map as MapIcon } from 'lucide-react';
 
+import { queryAllLayers } from '@/services/wmsFeatureInfo';
+import { FeatureQueryPopup } from './FeatureQueryPopup';
+
 mapboxgl.accessToken = process.env.NEXT_PUBLIC_MAPBOX_TOKEN!;
+
+
 
 export function ForestMap() {
     const [drawnGeometry, setDrawnGeometry] = useState<any>(null);
@@ -42,7 +47,15 @@ export function ForestMap() {
 
     const [updateMapState] = useMutation(UPDATE_MAP_STATE);
     const [savePolygon] = useMutation(SAVE_POLYGON_MUTATION);
-
+    const handleRegionNavigate = (lat: number, lng: number, zoom: number) => {
+        if (map.current) {
+            map.current.flyTo({
+                center: [lng, lat],
+                zoom: zoom,
+                essential: true
+            });
+        }
+    };
     // Initialize map
     useEffect(() => {
         if (!mapContainer.current) return;
@@ -115,6 +128,68 @@ export function ForestMap() {
             map.current?.remove();
         };
     }, [user?.id]);
+
+    const [isQuerying, setIsQuerying] = useState(false);
+
+// Update click handler
+    const handleMapClick = async (e: mapboxgl.MapMouseEvent) => {
+        setIsQuerying(true);
+        const { lng, lat } = e.lngLat;
+        const data = await queryAllLayers(lng, lat, map.current!);
+        setIsQuerying(false);
+        setQueryPopup({ visible: true, lng, lat, data });
+    };
+
+    const [queryPopup, setQueryPopup] = useState<{
+        visible: boolean;
+        lng: number;
+        lat: number;
+        data: any;
+    } | null>(null);
+
+// Add click handler in useEffect where map initializes
+    useEffect(() => {
+
+        // Add click handler for feature query
+        const handleMapClick = async (e: mapboxgl.MapMouseEvent) => {
+            const { lng, lat } = e.lngLat;
+            if (draw.current?.getMode() !== 'simple_select') {
+                return;
+            }
+            // Query all WMS layers at click point
+            const data = await queryAllLayers(lng, lat, map.current!);
+
+            setQueryPopup({
+                visible: true,
+                lng,
+                lat,
+                data,
+            });
+        };
+
+        map.current.on('click', handleMapClick);
+
+        return () => {
+            map.current?.off('click', handleMapClick);
+            // ... existing cleanup ...
+        };
+    }, [user?.id]);
+
+// Add handlers for filtering
+    const handleSelectRegion = (code: string) => {
+        setFilters({ regionCode: code });
+        setQueryPopup(null);
+    };
+
+    const handleSelectDepartment = (code: string) => {
+        setFilters({ ...filters, departementCode: code });
+        setQueryPopup(null);
+    };
+
+    const handleSelectCommune = (code: string) => {
+        setFilters({ ...filters, communeCode: code });
+        setQueryPopup(null);
+    };
 
     // Add WMS layers to map
     const addWMSLayers = (mapInstance: mapboxgl.Map) => {
@@ -297,7 +372,7 @@ export function ForestMap() {
                     },
                     new mapboxgl.LngLatBounds(allCoords[0], allCoords[0])
                 );
-                mapInstance.fitBounds(bounds, { padding: 100 });
+                // mapInstance.fitBounds(bounds, { padding: 100 });
             }
         } catch (error) {
             console.error('Error adding polygons:', error);
@@ -324,7 +399,7 @@ export function ForestMap() {
 
             {/* Top Right Controls */}
             <div className="absolute top-4 right-4 z-10 flex flex-col gap-2">
-                <button
+              {/*  <button
                     onClick={() => setShowCadastre(!showCadastre)}
                     className={`flex items-center gap-2 px-4 py-2 rounded-lg shadow-lg border transition-all ${
                         showCadastre
@@ -334,7 +409,7 @@ export function ForestMap() {
                 >
                     <Layers size={18} />
                     <span className="text-sm font-medium">Cadastre</span>
-                </button>
+                </button>*/}
 
                 <button
                     onClick={handleLogout}
@@ -379,6 +454,28 @@ export function ForestMap() {
                     </div>
                 </div>
             )}
+            // Add to JSX return
+            {queryPopup?.visible && (
+                <FeatureQueryPopup
+                    lng={queryPopup.lng}
+                    lat={queryPopup.lat}
+                    data={queryPopup.data}
+                    onClose={() => setQueryPopup(null)}
+                    onSelectRegion={handleSelectRegion}
+                    onSelectDepartment={handleSelectDepartment}
+                    onSelectCommune={handleSelectCommune}
+                />
+            )}
+            {isQuerying && (
+                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-40 bg-white rounded-lg shadow-lg px-4 py-2">
+                    <div className="flex items-center gap-2 text-sm text-gray-600">
+                        <div className="w-4 h-4 border-2 border-blue-600 border-t-transparent rounded-full animate-spin" />
+                        Querying layers...
+                    </div>
+                </div>
+            )}
+
+            <FilterPanel onRegionSelect={handleRegionNavigate} />
         </div>
     );
 }

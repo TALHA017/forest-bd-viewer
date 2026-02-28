@@ -1,8 +1,8 @@
 'use client';
 
 import { useState } from 'react';
-import { Layers, Eye, EyeOff, Info } from 'lucide-react';
-import { WMS_LAYERS, WMSLayerConfig } from '@/services/wmsLayers';
+import { Layers, Eye, EyeOff } from 'lucide-react';
+import { WMSLayerConfig } from '@/services/wmsLayers';
 
 interface LayerControlPanelProps {
     layers: WMSLayerConfig[];
@@ -13,86 +13,52 @@ interface LayerControlPanelProps {
 export function LayerControlPanel({ layers, onToggleLayer, currentZoom }: LayerControlPanelProps) {
     const [isExpanded, setIsExpanded] = useState(false);
 
-    const getLayerStatus = (layer: WMSLayerConfig) => {
-        if (!layer.visible) return 'hidden';
-        if (currentZoom < layer.minZoom) return 'zoom-in';
-        if (currentZoom > layer.maxZoom) return 'zoom-out';
-        return 'visible';
+    const isVisible = (layer: WMSLayerConfig) => {
+        return layer.visible && currentZoom >= layer.minZoom && currentZoom <= layer.maxZoom;
     };
 
     return (
         <div className="absolute top-20 right-4 z-10">
             <button
                 onClick={() => setIsExpanded(!isExpanded)}
-                className={`flex items-center gap-2 px-4 py-2 rounded-lg shadow-lg border transition-all ${
-                    isExpanded ? 'bg-blue-600 text-white' : 'bg-white text-gray-700'
+                className={`flex items-center gap-1.5 px-2.5 py-1 rounded shadow border text-xs font-medium transition-colors ${
+                    isExpanded ? 'bg-blue-600 text-white border-blue-600' : 'bg-white text-gray-700 border-gray-200 hover:bg-gray-50'
                 }`}
             >
-                <Layers size={18} />
-                <span className="text-sm font-medium">Layers</span>
+                <Layers size={14} />
+                Layers
             </button>
 
             {isExpanded && (
-                <div className="mt-2 w-72 bg-white rounded-lg shadow-xl border border-gray-200 overflow-hidden">
-                    <div className="p-3 bg-gray-50 border-b border-gray-200">
-                        <h3 className="font-semibold text-sm text-gray-900">Map Layers</h3>
-                        <p className="text-xs text-gray-500 mt-1">Zoom: {currentZoom.toFixed(1)}</p>
+                <div className="mt-1 w-56 bg-white rounded shadow-lg border border-gray-200">
+                    <div className="px-2 py-1 bg-gray-50 border-b border-gray-200 text-xs text-gray-500">
+                        Zoom: {currentZoom.toFixed(1)}
                     </div>
 
-                    <div className="divide-y divide-gray-100">
-                        {layers.map((layer) => {
-                            const status = getLayerStatus(layer);
-
-                            return (
-                                <div
-                                    key={layer.id}
-                                    className={`p-3 hover:bg-gray-50 transition-colors ${
-                                        status === 'visible' ? 'opacity-100' : 'opacity-50'
-                                    }`}
-                                >
-                                    <div className="flex items-center justify-between">
-                                        <div className="flex items-center gap-3">
-                                            <div
-                                                className="w-3 h-3 rounded-full"
-                                                style={{ backgroundColor: layer.color }}
-                                            />
-                                            <div>
-                                                <h4 className="text-sm font-medium text-gray-900">
-                                                    {layer.name}
-                                                </h4>
-                                                <p className="text-xs text-gray-500">
-                                                    {layer.minZoom}-{layer.maxZoom} zoom
-                                                </p>
-                                            </div>
-                                        </div>
-
-                                        <button
-                                            onClick={() => onToggleLayer(layer.id)}
-                                            className={`p-1.5 rounded transition-colors ${
-                                                layer.visible
-                                                    ? 'text-blue-600 hover:bg-blue-50'
-                                                    : 'text-gray-400 hover:bg-gray-100'
-                                            }`}
-                                        >
-                                            {layer.visible ? <Eye size={16} /> : <EyeOff size={16} />}
-                                        </button>
-                                    </div>
-
-                                    {status === 'zoom-in' && (
-                                        <p className="text-xs text-amber-600 mt-1 flex items-center gap-1">
-                                            <Info size={12} />
-                                            Zoom in to see ({layer.minZoom}+)
-                                        </p>
-                                    )}
-                                    {status === 'zoom-out' && (
-                                        <p className="text-xs text-amber-600 mt-1 flex items-center gap-1">
-                                            <Info size={12} />
-                                            Zoom out to see (&lt;{layer.maxZoom})
-                                        </p>
-                                    )}
+                    <div>
+                        {layers.map((layer) => (
+                            <div
+                                key={layer.id}
+                                className="flex items-center justify-between px-2 py-1 hover:bg-gray-50 border-b border-gray-100 last:border-0"
+                            >
+                                <div className="flex items-center gap-1.5 min-w-0">
+                                    <div
+                                        className="w-2 h-2 rounded-full shrink-0"
+                                        style={{ backgroundColor: layer.color }}
+                                    />
+                                    <span className={`text-xs truncate ${isVisible(layer) ? 'text-gray-900' : 'text-gray-400'}`}>
+                                        {layer.name}
+                                    </span>
                                 </div>
-                            );
-                        })}
+
+                                <button
+                                    onClick={() => onToggleLayer(layer.id)}
+                                    className={`shrink-0 ${layer.visible ? 'text-blue-600' : 'text-gray-300'}`}
+                                >
+                                    {layer.visible ? <Eye size={12} /> : <EyeOff size={12} />}
+                                </button>
+                            </div>
+                        ))}
                     </div>
                 </div>
             )}
