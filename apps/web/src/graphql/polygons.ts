@@ -1,3 +1,4 @@
+// graphql/polygons.ts
 import { gql } from '@apollo/client';
 
 export const SAVE_POLYGON_MUTATION = gql`
@@ -7,18 +8,20 @@ export const SAVE_POLYGON_MUTATION = gql`
       name
       areaHectares
       status
+      createdAt
+      geometry
       analysisResults {
         plotCount
         totalForestArea
+        coveragePercentage
         forestTypes
         speciesDistribution {
           species
           areaHectares
           percentage
+          geometry
         }
       }
-      createdAt
-      geometry   
     }
   }
 `;
@@ -30,12 +33,19 @@ export const GET_MY_POLYGONS = gql`
       name
       areaHectares
       status
+      createdAt
       geometry
       analysisResults {
         plotCount
         totalForestArea
+        coveragePercentage
+        forestTypes
+        speciesDistribution {
+          species
+          areaHectares
+          percentage
+        }
       }
-      createdAt
     }
   }
 `;

@@ -6,6 +6,7 @@ import { useAuthStore } from '@/store/authStore';
 import { LoginForm } from '@/components/auth/LoginForm';
 import { RegisterForm } from '@/components/auth/RegisterForm';
 import { TreePine, Leaf } from 'lucide-react';
+import Image from 'next/image';
 
 export default function AuthPage() {
     const [isLogin, setIsLogin] = useState(true);
@@ -38,8 +39,15 @@ export default function AuthPage() {
             >
                 <div className="max-w-md text-center lg:text-left">
                     <div className="flex items-center justify-center lg:justify-start gap-3 mb-6">
-                        <div className="p-3 bg-white/10 rounded-xl backdrop-blur">
-                            <TreePine size={25} />
+                        <div className="p-2 bg-white/10 rounded-xl backdrop-blur">
+                            <Image
+                                src="/reseau_symbiose_logo.jfif"
+                                alt="Reseau Symbiose Logo"
+                                width={50}
+                                height={50}
+                                className="rounded-lg"
+                                priority
+                            />
                         </div>
                         <h1 className="text-4xl font-bold">Forest BD</h1>
                     </div>
